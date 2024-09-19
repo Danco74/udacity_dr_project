@@ -2,7 +2,6 @@
 import sys
 import re
 import pandas as pd
-import numpy as np
 from sqlalchemy import create_engine
 import pickle
 
@@ -21,7 +20,7 @@ from sklearn.multioutput import MultiOutputClassifier
 from sklearn.metrics import classification_report
 
 # Import custom feature extraction functions
-sys.path.append('../shared')
+sys.path.append('./shared')
 from feature_extraction import extract_pos_features, extract_keyword_features
 
 # Download necessary NLTK resources
