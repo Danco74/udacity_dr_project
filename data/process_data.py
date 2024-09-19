@@ -45,7 +45,7 @@ def clean_data(df):
     categories = categories.apply(lambda col: col.str[-1]).apply(pd.to_numeric)
     
     # Identify rows where all category values are either 0 or 1
-    valid_rows = categories.applymap(lambda x: x in [0, 1]).all(axis=1)
+    valid_rows = categories.apply(lambda col: col.map(lambda x: x in [0, 1])).all(axis=1)
     
     # Filter the DataFrame to keep only valid rows
     categories = categories[valid_rows]
