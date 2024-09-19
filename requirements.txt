@@ -1,0 +1,11 @@
+Flask==3.0.3
+Flask_Cors==5.0.0
+imbalanced_learn==0.12.3
+joblib==1.4.2
+nltk==3.9.1
+numpy==2.1.1
+pandas==2.2.2
+scikit_learn==1.5.2
+SQLAlchemy==2.0.29
+SQLAlchemy==2.0.32
+xgboost==2.1.1
