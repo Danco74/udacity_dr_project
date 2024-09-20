@@ -12,7 +12,7 @@ from sqlalchemy import create_engine, inspect, text
 import sqlalchemy
 
 # Import custom feature extraction functions
-sys.path.append('../../shared')
+sys.path.append('./shared')
 import feature_extraction
 
 

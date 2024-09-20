@@ -14,7 +14,7 @@ def create_virtualenv():
         subprocess.check_call([sys.executable, "-m", "venv", ".venv"])
 
 def install_requirements():
-    # Install dependencies using pip
+    # Install dependencies using pip from the virtual environment
     if platform.system() == "Windows":
         pip_executable = os.path.join(".venv", "Scripts", "pip")
     else:
@@ -41,7 +41,7 @@ def install_frontend_dependencies():
         sys.exit(1)
 
 def run_data_processing():
-    # Construct the command to run process_data.py with the provided arguments
+    # Use Python from the virtual environment to run process_data.py
     if platform.system() == "Windows":
         python_executable = os.path.join(".venv", "Scripts", "python")
     else:
@@ -65,7 +65,7 @@ def run_data_processing():
     subprocess.check_call(command)
 
 def train_model():
-    # Construct the command to run train_classifier.py with the provided arguments
+    # Use Python from the virtual environment to run train_classifier.py
     if platform.system() == "Windows":
         python_executable = os.path.join(".venv", "Scripts", "python")
     else:
@@ -85,6 +85,14 @@ def train_model():
 
     print(f"Running model training script: {' '.join(command)}")
     subprocess.check_call(command)
+
+def print_activation_instructions():
+    if platform.system() == "Windows":
+        print("\nTo activate the virtual environment, run:")
+        print(".venv\\Scripts\\activate")
+    else:
+        print("\nTo activate the virtual environment, run:")
+        print("source .venv/bin/activate")
 
 def main():
     create_virtualenv()
@@ -120,6 +128,7 @@ def main():
         train_model()
     
     print("Setup complete!")
+    print_activation_instructions()
 
 if __name__ == "__main__":
     main()
